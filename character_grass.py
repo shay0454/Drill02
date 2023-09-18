@@ -13,6 +13,7 @@ check0=True
 check1=False
 temp=+1
 while(time_<5000):
+    time_+=1
     if(check0):
         if(x==400 and y==90):
             if(check1):
@@ -21,7 +22,6 @@ while(time_<5000):
             else:
                 check1=True
         delay(0.0005)
-        time_+=1
         if(check):
             x+=temp*2
             clear_canvas()
@@ -49,25 +49,13 @@ while(time_<5000):
                 check=True
                 temp=1
     else:
-        if(x==400 and y==90):
-            if(check1):
-                check0=True
-                check1=False
-            else:
-                check1=True
-        delay(0.0005)
-        time_+=1
-        clear_canvas()
-        grass.draw_now(400,30)
-        x,y=400+200*math.cos(time_/360*math.pi),290+200*math.cos(3/2*math.pi+time_/360*math.pi)
-        character.draw_now(x,y)
-"""
-character.draw_now(400,90)
-while(time_<2000):
-    delay(0.001)
-    time_+=1
-    clear_canvas()
-    grass.draw_now(400,30)
-    character.draw_now(400+200*math.cos(time_/360*math.pi),290+200*math.cos(3/2*math.pi+time_/360*math.pi))
-"""
+        for i in range(0,360):
+            clear_canvas()
+            grass.draw_now(400,30)
+            x,y=400+200*math.sin(2*i/360*math.pi),290-200*math.cos(2*i/360*math.pi)
+            character.draw_now(x,y)
+            delay(0.001)
+        check0=True
+        x,y=400,90
+#
 close_canvas()
