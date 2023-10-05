@@ -49,13 +49,12 @@ while(time_<5000):
                 check=True
                 temp=1
     else:
-        for i in range(0,360):
+        for i in range(0,361):
             clear_canvas()
             grass.draw_now(400,30)
             x,y=400+200*math.sin(2*i/360*math.pi),290-200*math.cos(2*i/360*math.pi)
             character.draw_now(x,y)
             delay(0.001)
         check0=True
-        x,y=400,90
 #
 close_canvas()
